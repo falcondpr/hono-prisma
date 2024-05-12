@@ -11,7 +11,7 @@ user
       data: body,
     });
 
-    return c.json(newUser);
+    return c.json(newUser, 201);
   })
   .get("/", async (c) => {
     const users = await prisma.user.findMany();
@@ -43,7 +43,7 @@ user
       data: body,
     });
 
-    return c.json(userUpdated);
+    return c.json(userUpdated, 201);
   })
   .delete("/:id", async (c) => {
     const id = c.req.param("id");
